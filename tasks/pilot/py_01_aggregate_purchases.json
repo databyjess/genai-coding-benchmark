@@ -1,0 +1,8 @@
+{
+"id": "py_01",
+"language": "python",
+"difficulty": "medium",
+"function_signature": "aggregate_purchases(path: str)",
+"description": "Load CSV, filter purchase events, aggregate per user.",
+"dataset": "datasets/pilot/purchases.csv"
+}

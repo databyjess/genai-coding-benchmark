@@ -1,0 +1,7 @@
+{
+"id": "sql_01",
+"language": "sql",
+"difficulty": "medium",
+"description": "Users whose first order occurs within 30 days of account creation.",
+"dataset": ["datasets/pilot/users.sql", "datasets/pilot/orders.sql"]
+}

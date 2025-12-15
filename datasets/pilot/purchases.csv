@@ -1,0 +1,5 @@
+user_id,event_time,event_type,value
+1,2024-01-01T10:00:00,purchase,100
+1,2024-01-02T12:00:00,purchase,50
+2,2024-01-03T09:00:00,click,20
+3,2024-01-04T14:00:00,purchase,200

@@ -1,0 +1,7 @@
+{
+"id": "py_02",
+"language": "python",
+"difficulty": "easy",
+"function_signature": "longest_palindromic_substring(s: str) -> str",
+"description": "Return the longest contiguous palindromic substring."
+}

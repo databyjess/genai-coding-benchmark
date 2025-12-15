@@ -1,0 +1,6 @@
+{
+"id": "dax_01",
+"language": "dax",
+"difficulty": "medium",
+"description": "Total sales for Electronics respecting filter context."
+}

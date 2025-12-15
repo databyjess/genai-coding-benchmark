@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GenAI Coding Benchmark – Pilot Results Schema",
+  "description": "Schema for storing normalised pilot benchmark results per model.",
+  "type": "object",
+  "required": ["model", "run_metadata", "scores"],
+  "properties": {
+    "model": {
+      "type": "object",
+      "required": ["name", "access_type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Public model name (e.g. GPT-4.1, Claude 3.5 Sonnet)."
+        },
+        "version": {
+          "type": "string",
+          "description": "Optional model version or release identifier."
+        },
+        "access_type": {
+          "type": "string",
+          "enum": ["browser"],
+          "description": "Access method used during evaluation."
+        }
+      }
+    },
+    "run_metadata": {
+      "type": "object",
+      "required": ["run_date", "runner"],
+      "properties": {
+        "run_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when the pilot was executed."
+        },
+        "runner": {
+          "type": "string",
+          "description": "Person or team executing the benchmark."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the run (issues, retries, quirks)."
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": ["tasks", "language_scores", "overall_score"],
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["task_id", "language", "score"],
+            "properties": {
+              "task_id": {
+                "type": "string",
+                "description": "Task identifier (e.g. py_01, sql_01)."
+              },
+              "language": {
+                "type": "string",
+                "enum": ["python", "sql", "dax"]
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          }
+        },
+        "language_scores": {
+          "type": "object",
+          "required": ["python", "sql", "dax"],
+          "properties": {
+            "python": { "type": "number", "minimum": 0, "maximum": 100 },
+            "sql": { "type": "number", "minimum": 0, "maximum": 100 },
+            "dax": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "overall_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    }
+  }
+}
